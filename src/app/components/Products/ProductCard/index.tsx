@@ -10,10 +10,10 @@ export interface CardProps {
 
 const ProductCard = ({title, price, thumbnail}: CardProps) => {
   return (
-    <section className="product-card">
+    <section className="w-full max-w-xs bg-white flex flex-col cursor-pointer my-0 mx-auto relative">
       
       <img
-        src={thumbnail}
+        src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}
         alt="product"
         className="card__image"
       />
