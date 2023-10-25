@@ -14,7 +14,9 @@ const SearchBar = () => {
         required
       />
 
-      <button type="submit" className="">
+      <button 
+        type="submit" 
+        className="bg-none border-none text-base flex items-center justify-center text-gray-800s">
         <BsSearch />
       </button>
     </form>

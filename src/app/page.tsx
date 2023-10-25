@@ -1,12 +1,12 @@
 import Header from './components/Header';
-
+import Products from './components/Products';
 
 export default function Home() {
   return (
     <>
       <Header/>
-      <main>
-        <h1>ola mundo</h1>
+      <main className="">
+        <Products/>
       </main>
     </>
   );
