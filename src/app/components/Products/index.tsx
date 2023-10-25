@@ -1,25 +1,23 @@
-import React from 'react';
-import ProductCard from './ProductCard';
+'use client';
 
-const Products = async () => {
+import React, { useEffect, useState } from 'react';
+import ProductCard, { CardProps } from './ProductCard';
+import fetchProducts from '@/api/fetchProducts';
 
-  // const [ products, setProducts] = useState([]);
+const Products = () => {
 
-  // useEffect(() => {
-  //   fetchProducts({query: 'iphone'}).then((response) => {
-  //     setProducts(response);
-  //     console.log(products);
-  //   });
-  // }, []);
+  const [ products, setProducts] = useState<CardProps[]>([]);
 
-  const res = await fetch('https://api.mercadolibre.com/sites/MLB/search?q=iphone');
-  const data = await res.json();
-  const products: Array<any> = data.results;
+  useEffect(() => {
+    fetchProducts({query: 'iphone'}).then((response) => {
+      setProducts(response);
+    });
+  }, []);
 
   return (
     <>
       {products.map((product, index) => (
-        <ProductCard key={index} title={product} price={product} thumbnail={product}/>
+        <ProductCard key={index} title={product.title} price={product.price} thumbnail={product.thumbnail}/>
       ))}
     </>
   );

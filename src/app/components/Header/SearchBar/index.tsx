@@ -9,7 +9,6 @@ const SearchBar = () => {
       <input
         className="p-3 grow outline-none text-xs font-medium border-r border-gray-300"
         type="search"
-        value=""
         placeholder="Buscar produtos"
         required
       />

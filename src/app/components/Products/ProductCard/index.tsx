@@ -2,7 +2,7 @@ import formatCurrency from '@/utils/formatCurrency';
 import React from 'react';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 
-interface CardProps {
+export interface CardProps {
   title: string;
   price: number;
   thumbnail: string;
