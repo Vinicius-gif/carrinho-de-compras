@@ -10,8 +10,11 @@ export interface CardProps {
 }
 
 const ProductCard = ({title, price, thumbnail}: CardProps) => {
+
   return (
-    <section className="w-full max-w-xs bg-white flex flex-col cursor-pointer my-0 mx-auto relative hover:shadow-lg hover:flex">
+    <section 
+      className="group w-full max-w-xs bg-white flex flex-col cursor-pointer my-0 mx-auto relative
+      hover:shadow-lg hover:flex">
       
       <img
         src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}
@@ -29,7 +32,7 @@ const ProductCard = ({title, price, thumbnail}: CardProps) => {
       <button
         type="button"
         className="absolute top-0 right-0 w-11 h-11 my-3 mx-4 text-blue-600 bg-white items-center
-        justify-center border-none rounded-l-3xl text-2xl cursor-pointer flex"
+        justify-center border-none rounded-l-3xl text-2xl cursor-pointer hidden group-hover:flex"
       >
         <BsFillCartPlusFill />
       </button>
