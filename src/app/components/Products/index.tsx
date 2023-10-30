@@ -1,20 +1,27 @@
-import React, {Suspense} from 'react';
-import ProductCard, { CardProps } from './ProductCard';
+'use client';
+
+import React, { useEffect, useContext } from 'react';
+import ProductCard from './ProductCard';
 import fetchProducts from '@/api/fetchProducts';
-import Loading from './loading';
+import { ProductsContext } from '@/app/context/CarrinhoContext';
 
-const Products = async () => {
+const Products = () => {
 
-  let products: CardProps[] = await fetchProducts({query: 'iphone'});
+  const {products, setProducts, setLoading} = useContext(ProductsContext);
+  
+  useEffect(() => {
+    fetchProducts({query: 'iphone'}).then((response) => {
+      setProducts(response);
+      setLoading(false);
+    });
+  }, [setProducts, setLoading]);
 
   return (
-    <Suspense fallback={<Loading/>}>
-      <section className="mt-28 mx-24 mb-12 grid grid-cols-3 gap-5">
-        {products.map((product, index) => (
-          <ProductCard key={index} title={product.title} price={product.price} thumbnail={product.thumbnail}/>
-        ))}
-      </section>
-    </Suspense>
+    <section className="pt-28 mx-28 mb-14 grid grid-cols-4 gap-6">
+      {products.map((product) => (
+        <ProductCard key={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail}/>
+      ))}
+    </section>
   );
 };
 
