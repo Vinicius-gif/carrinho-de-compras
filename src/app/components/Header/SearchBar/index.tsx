@@ -1,19 +1,23 @@
 'use client';
 
 import fetchProducts from '@/api/fetchProducts';
-import React, { useState } from 'react';
+import { ProductsContext } from '@/app/context/CarrinhoContext';
+import React, { useState, useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 
 const SearchBar = () => {
 
-  const [ searchValue, setsearchValue ] = useState('');
+  const [ searchValue, setSearchValue ] = useState('');
+  const { setProducts } = useContext(ProductsContext);
 
   const handleSearch = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const products = await fetchProducts({query: searchValue});
-    console.log(products);
-    setsearchValue('');
+
+    setProducts(products);
+    
+    setSearchValue('');
   };
 
   return (
@@ -27,7 +31,7 @@ const SearchBar = () => {
         type="search"
         placeholder="Buscar produtos"
         value={searchValue}
-        onChange={(e) => setsearchValue(e.target.value)}
+        onChange={(e) => setSearchValue(e.target.value)}
         required
       />
       <button 
