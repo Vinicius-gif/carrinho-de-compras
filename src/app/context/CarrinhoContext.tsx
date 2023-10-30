@@ -19,7 +19,17 @@ type ProviderProps = {
 };
 
 // Criando um contexto
-export const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
+export const ProductsContext = createContext<ProductsContextType>({
+  products: [],
+  setProducts: () => {},
+  loading: true,
+  setLoading: () => {},
+  cartItems: [],
+  setCartItems: () => {},
+  isCartVisible: false,
+  setIsCartVisible: () => {}
+});
+
 
 // Criando um provedor de contexto
 function ProductsContextProvider({ children }: ProviderProps) {
