@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ProductsContext } from '@/app/context/CarrinhoContext';
+import { ProductsContext } from '@/app/context/ProductsContext';
 import formatCurrency from '@/utils/formatCurrency';
 import React, { useContext} from 'react';
 import { BsFillCartPlusFill } from 'react-icons/bs';

@@ -30,7 +30,6 @@ export const ProductsContext = createContext<ProductsContextType>({
   setIsCartVisible: () => {}
 });
 
-
 // Criando um provedor de contexto
 function ProductsContextProvider({ children }: ProviderProps) {
 

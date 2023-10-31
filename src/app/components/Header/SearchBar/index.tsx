@@ -1,7 +1,7 @@
 'use client';
 
 import fetchProducts from '@/api/fetchProducts';
-import { ProductsContext } from '@/app/context/CarrinhoContext';
+import { ProductsContext } from '@/app/context/ProductsContext';
 import React, { useState, useContext } from 'react';
 import { BsSearch } from 'react-icons/bs';
 

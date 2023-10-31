@@ -2,7 +2,7 @@
 
 import React, {useContext} from 'react';
 import CartItem from './CartItem';
-import { ProductsContext } from '@/app/context/CarrinhoContext';
+import { ProductsContext } from '@/app/context/ProductsContext';
 
 const Carrinho = () => {
 

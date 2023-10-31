@@ -3,7 +3,7 @@
 import React, { useEffect, useContext } from 'react';
 import ProductCard from './ProductCard';
 import fetchProducts from '@/api/fetchProducts';
-import { ProductsContext } from '@/app/context/CarrinhoContext';
+import { ProductsContext } from '@/app/context/ProductsContext';
 
 const Products = () => {
 
