@@ -6,14 +6,24 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 import Loading from '../loading';
 
 export interface CardProps {
+  id: string;
   title: string;
   price: number;
   thumbnail: string;
 }
 
-const ProductCard = ({title, price, thumbnail}: CardProps) => {
+const ProductCard = ({id, title, price, thumbnail}: CardProps) => {
 
-  const { loading } = useContext(ProductsContext);
+  const { loading, cartItems, setCartItems } = useContext(ProductsContext);
+
+  const addCartItem = () => {
+    setCartItems([...cartItems, {
+      id,
+      title,
+      price,
+      thumbnail
+    }]);
+  };
 
   return (
     <>
@@ -38,6 +48,7 @@ const ProductCard = ({title, price, thumbnail}: CardProps) => {
 
           <button
             type="button"
+            onClick={addCartItem}
             className="absolute top-0 right-0 w-11 h-11 my-3 mx-4 text-blue-600 bg-white items-center
         justify-center border-none rounded-l-3xl text-2xl cursor-pointer hidden group-hover:flex"
           >
