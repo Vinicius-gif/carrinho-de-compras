@@ -19,7 +19,7 @@ const Products = () => {
   return (
     <section className="pt-28 mx-28 mb-14 grid grid-cols-4 gap-6">
       {products.map((product) => (
-        <ProductCard key={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail}/>
+        <ProductCard key={product.id} id={product.id} title={product.title} price={product.price} thumbnail={product.thumbnail}/>
       ))}
     </section>
   );

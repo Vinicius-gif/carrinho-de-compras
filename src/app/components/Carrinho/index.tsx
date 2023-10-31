@@ -1,7 +1,8 @@
+'use client';
+
 import React, {useContext} from 'react';
 import CartItem from './CartItem';
 import { ProductsContext } from '@/app/context/CarrinhoContext';
-import formatCurrency from '@/utils/formatCurrency';
 
 const Carrinho = () => {
 
@@ -18,12 +19,12 @@ const Carrinho = () => {
             id={cartItem.id} 
             key={cartItem.id}  
             title={cartItem.title} 
-            price={formatCurrency(totalPrice, 'BRL')}
+            price={cartItem.price}
             thumbnail={cartItem.thumbnail}
           />
         )}
       </div>
-      <div className="text-3xl font-medium pt-9 pb-4 border-t border-gray-400 ">Resumo do carriho</div>
+      <div className="text-3xl font-medium pt-9 pb-4 border-t border-gray-400 ">Preço toral: {totalPrice}</div>
     </section>
   );
 };
