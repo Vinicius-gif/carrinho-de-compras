@@ -12,14 +12,16 @@ const CartItem = ({ id, title, price, thumbnail}: Product) => {
   const handleRemoveItem = () => {
     const updatedCartItens = cartItems.filter((item) => item.id != id);
     setCartItems(updatedCartItens);
-  }; 
+  };
+
+  const priceCurrency = formatCurrency({value: price, currency: 'BRL'});
 
   return (
     <section className="flex items-start border-b border-gray-400 pb-5 mb-5 relative">
       <img src={thumbnail} alt="thumbnail" className="w-16"/>
       <div className="pt-0 pr-9 pb-0 pl-3">
         <h3 className="text-sm font-medium text-black mb-2">{title}</h3>
-        <h3 className="text-2xl font-medium">{formatCurrency({value: price, currency: 'BRL'})}</h3>
+        <h3 className="text-2xl font-medium">{priceCurrency}</h3>
 
         <button
           type="button"
