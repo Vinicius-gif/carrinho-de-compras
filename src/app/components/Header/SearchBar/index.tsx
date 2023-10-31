@@ -23,7 +23,7 @@ const SearchBar = () => {
   return (
     <form 
       action="" 
-      className="flex bg-white w-full max-w-md shadow-sm justify-between gap-3 pr-3"
+      className="flex bg-white max-w-md shadow-sm justify-between gap-3 pr-3 xl:w-full lg:w-full md:w-4/5 sm:w-1/2"
       onSubmit={handleSearch}
     > 
       <input
